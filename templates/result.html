@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Result</title>
+</head>
+<body>
+  <h2>✅ फॉर्म सबमिट यशस्वी</h2>
+  <h3>तुम्ही दिलेली माहिती:</h3>
+  <ul>
+    {% for key, value in data.items() %}
+      <li><strong>{{ key }}:</strong> {{ value }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
