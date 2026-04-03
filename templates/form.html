@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>Editis Form - YouTube Channel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background: #ff4d4d;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #e60000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🎥 Edits Form - #edit the great#</h2>
+    <h3>We want to know more about your preferences for edits! Please fill out this form to help us create content that you will love.</h3>
+    <h3>{*} for Required Fields</h3>
+    <form id="editForm">
+      <div class="question">
+        <label>1. Your name*</label>
+        <input type="text" name="q1" required>
+      </div>
+      <div class="question">
+        <label>2. E-mail*</label>
+        <input type="email" name="q2" required>
+      </div>
+      <div class="question">
+        <label>3. What type of edits do you like?*</label>
+        <textarea name="q3" required></textarea>
+      </div>
+      <div class="question">
+        <label>4. content that you like for your edit?*</label>
+        <textarea name="q4" required></textarea>
+      </div>
+      <div class="question">
+        <label>5. What is your favorite editing style?*</label>
+        <textarea name="q5" required></textarea>
+      </div>
+      <div class="question">
+        <label>6.how time do you want in your edit?*</label>
+        <textarea name="q6" required></textarea>
+      </div>
+      <div class="question">
+        <label>7. you like songs or music in your edit?*</label>
+        <textarea name="q7" required></textarea>
+      </div>
+      <div class="question">
+        <label>8.what song or music do you like in your edit?*</label>
+        <textarea name="q8" required></textarea>
+      </div>
+      <div class="question">
+        <label>9. Do you prefer fast-paced or slow-paced edits?</label>
+        <textarea name="q9"></textarea>
+      </div>
+      <div class="question">
+        <label>10. Description </label>
+        <textarea name="q10"></textarea>
+      </div>
+      <div class="question">
+        <label>11. Your Feedback</label>
+        <textarea name="q11"></textarea>
+      </div>
+      <button type="submit">submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("editForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      alert("thanks for submiting the form.");
+    });
+  </script>
+</body>
+</html>
