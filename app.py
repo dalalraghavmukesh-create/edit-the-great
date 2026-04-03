@@ -3,20 +3,22 @@ import smtplib
 import random
 
 app = Flask(__name__)
-app.secret_key = "secret_key_for_session"  # सुरक्षित ठेव
+app.secret_key = "secret_key_for_session"
 
-# Home Page - Form
 @app.route("/", methods=["GET", "POST"])
 def form():
     if request.method == "POST":
+        # सर्व फॉर्म डेटा session मध्ये ठेवतो
+        session["form_data"] = request.form.to_dict()
+
         email = request.form.get("email")
         session["email"] = email
         otp = str(random.randint(100000, 999999))
         session["otp"] = otp
 
-        # ईमेल पाठवण्यासाठी SMTP
+        # ईमेल पाठवणे
         sender_email = "तुझा_ईमेल@gmail.com"
-        sender_password = "तुझं_AppPassword"  # Gmail App Password वापर
+        sender_password = "तुझं_AppPassword"
         subject = "तुझा OTP"
         message = f"तुझा OTP आहे: {otp}"
 
@@ -33,17 +35,21 @@ def form():
 
     return render_template("form.html")
 
-# OTP Verify Page
 @app.route("/verify", methods=["GET", "POST"])
 def verify():
     if request.method == "POST":
         user_otp = request.form.get("otp")
         if user_otp == session.get("otp"):
-            return "✅ OTP Verify झाला! फॉर्म सबमिट यशस्वी."
+            return redirect(url_for("result"))
         else:
             return "❌ OTP चुकीचा आहे. पुन्हा प्रयत्न करा."
 
     return render_template("verify.html")
+
+@app.route("/result")
+def result():
+    form_data = session.get("form_data", {})
+    return render_template("result.html", data=form_data)
 
 if __name__ == "__main__":
     app.run(debug=True)
